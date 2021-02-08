@@ -92,6 +92,9 @@ pop, log = algorithms.eaSimple(pop, toolbox, 0.7, 0, 50, stats=mstats,
 #print(pop)
 print(len(hof))
 print(hof[0])
+#print(log[::])
+print(log.chapters["fitness"].select("max"))
+
 
 #plot min fitness (a) 
 #plot min size (b)
