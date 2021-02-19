@@ -2,11 +2,12 @@ import numpy as np
 import pandas as pd
 import seaborn as sb
 import matplotlib.pyplot as plt
-np.random.seed(40)
+np.random.seed(12)
+
 from sklearn.datasets import load_iris
 
 class K_MEANS ():
-    def __init__ (self, data, pso = False, k =3, iterations = 1, n_particles = 1):
+    def __init__ (self, data, pso = False, k =3, iterations = 1, n_particles = 2):
         self.data = data
         self. pso = pso
         #number of centroids per particle
@@ -20,7 +21,8 @@ class K_MEANS ():
         particles = []
         for i in range(n):
             #sample a random value
-            index = np.random.choice(len(self.data), self.k, replace=False)
+            np.random.seed(12+i)
+            index = np.random.choice(len(self.data), self.k, replace=False) 
             particles.append(self.data[index])
         return particles
     
@@ -96,10 +98,14 @@ class K_MEANS ():
                 cluster_values[i] = cluster_value
                 cluster_distance = [self.get_distance_cluster(x, particles[i]) for x in self.data]
                 cluster_distances[i] = cluster_distance
-                
-        print('fitness of particle 0:')
+        
+        print('fitness of particl 0:')
         print(self.get_fitness(0, cluster_values, cluster_distances))
         self.plot_particle(0, cluster_values, particles)
+        
+        print('fitness of particle 1:')
+        print(self.get_fitness(1, cluster_values, cluster_distances))
+        self.plot_particle(1, cluster_values, particles)
                 
         return cluster_values, cluster_distances, particles
         
