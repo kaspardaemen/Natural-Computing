@@ -95,9 +95,9 @@ class K_MEANS ():
             term3 = self.a * r2  * (np.array(best_centroids) - np.array(centroids))
             self.v[i] = term1 + term2 + term3
             
-            print(f'term1: {term1}')
-            print(f'term2: {term2}')
-            print(f'term3: {term3}')
+            # print(f'term1: {term1}')
+            # print(f'term2: {term2}')
+            # print(f'term3: {term3}')
             
             new_centroids = centroids + self.v[i]
             
