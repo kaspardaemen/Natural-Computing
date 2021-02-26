@@ -15,7 +15,6 @@ get_auc <- function(scores, labels) {
 
 
 scores <- read.table('test_results.txt')[,1]
-range01 <- function(x){(x-min(x))/(max(x)-min(x))}
 english <- read.table('english.test')[,1]
 tagalog <- read.table('tagalog.test')[,1]
 
