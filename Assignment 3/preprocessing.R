@@ -25,12 +25,5 @@ for (line in train){
   chunks <- append(chunks, linechunks)
 }
 
-train <- readLines("syscalls/snd-cert/snd-cert.train")
-labels <- readLines("syscalls/snd-cert/snd-cert.1.labels")
-
-
-write(chunks, file = "data",
-      ncolumns = if(is.character(x)) 1 else 5,
-      append = FALSE, sep = " ")
-
-
+vector_chunks <- unlist(chunks)
+write(vector_chunks, file = "seven_chunks.txt", ncolumns = 1)
