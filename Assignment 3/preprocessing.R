@@ -8,7 +8,8 @@ train <- readLines("syscalls/snd-cert/snd-cert.train")
 labels <- readLines("syscalls/snd-cert/snd-cert.1.labels")
 test <- readLines("syscalls/snd-cert/snd-cert.1.test")
 
-
+print(head(labels))
+print(head(train))
 
 chunker <- function(line, chunklength){
   n <- chunklength
@@ -18,11 +19,17 @@ chunker <- function(line, chunklength){
   return(chunks)
 }
 
-chunks <- list()
 
+
+chunks <- list()
 for (line in train){
-  linechunks <- chunker(line, 3)
+  linechunks <- chunker(line, 7)
   chunks <- append(chunks, linechunks)
 }
+
+
+write(chunks, file = "data",
+      ncolumns = if(is.character(x)) 1 else 5,
+      append = FALSE, sep = " ")
 
 
