@@ -23,7 +23,7 @@ chunks <- list()
 chunk.labels <- list()
 for (i in (1:length(train))){
   line <- train[i]
-  c(linechunks, linelabels) <- chunker(line, 7) # used %<-% to unpack a list into two variables
+  c(linechunks, linelabels) <- chunker(line, 7) 
   chunks <- append(chunks, linechunks)
 }
 
@@ -35,8 +35,6 @@ write(vector_chunks, file = "seven_chunks.txt", ncolumns = 1)
 #preprocess the test set
 ########################
 
-labels <- readLines("syscalls/snd-cert/snd-cert.1.labels")
-test <- readLines("syscalls/snd-cert/snd-cert.1.test")
 
 chunker <- function(line, chunklength, label){
   n <- chunklength
@@ -46,6 +44,9 @@ chunker <- function(line, chunklength, label){
   labels <- to_vec(for(i in 1:length(chunks))  label)
   return(list(chunks, labels))
 }
+
+labels <- readLines("syscalls/snd-cert/snd-cert.1.labels")
+test <- readLines("syscalls/snd-cert/snd-cert.1.test")
 
 chunks <- list()
 chunk.labels <- list()
