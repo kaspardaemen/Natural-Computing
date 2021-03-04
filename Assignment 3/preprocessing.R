@@ -52,8 +52,8 @@ chunks <- list()
 chunk.labels <- list()
 
 for (s in (sets)){
-  labels <- readLines(sprintf("syscalls/%s/snd-cert.%d.labels", type, s))
-  test <- readLines(sprintf("syscalls/%s/snd-cert.%d.test", type, s))
+  labels <- readLines(sprintf("syscalls/%s/%s.%d.labels", type, type, s))
+  test <- readLines(sprintf("syscalls/%s/%s.%d.test", type, type, s))
   
   for (i in (1:length(test))){
     line <- test[i]
