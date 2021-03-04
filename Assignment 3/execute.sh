@@ -10,14 +10,15 @@ count=0
 
 
 # for ln in merged.test
-for ln in merged.test
+for ln in merged_snd-cert_test.txt
 do
   while read ln; do
-    # echo "${ln}"
+
     count=$((count+1))
     echo $count
-    echo $ln | java -jar negsel2.jar -alphabet file://english.train -self english.train -n 10 -r 4 -c -l >> test_results_4.txt
-  done <merged.test
+    # echo $ln | java -jar negsel2.jar -alphabet file://english.train -self english.train -n 10 -r 4 -c -l >> test_results_4.txt
+    echo $ln | java -jar negsel2.jar -alphabet file://snd-cert.alpha -self snd-cert.train -n 7 -r 4 -c -l >> test_results_cert_7+4.txt
+  done <merged_snd-cert_test.txt
 done
 echo $count
 
