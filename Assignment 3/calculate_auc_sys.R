@@ -22,8 +22,9 @@ get_auc <- function(scores, labels, r) {
 
 }
 
-unm_df <- data.frame(chunk = readLines('merged_snd-unm_test.txt'), label = readLines('merged_snd-unm_labels.txt'))
-unm_df$result <- readLines('results-unm.txt')
+
+unm_df <- data.frame(chunk = readLines('merged_snd-cert_test.txt'), label = readLines('merged_snd-cert_labels.txt'))
+unm_df$result <- readLines('results/cert_3.txt')
 
 clean_df <- unm_df %>% filter(nchar(chunk) > 0) %>% mutate(result = as.double(result))
 

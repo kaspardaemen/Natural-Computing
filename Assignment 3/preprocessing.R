@@ -38,6 +38,7 @@ write(vector_chunks, file = "seven_chunks.txt", ncolumns = 1)
 sets <- c(1:3)
 type <- "snd-unm"
 
+#credits: https://statisticsglobe.com/split-character-string-into-chunks-in-r
 chunker <- function(line, chunklength, label){
   n <- chunklength
   chunks <- substring(line,                     # Apply substring function
