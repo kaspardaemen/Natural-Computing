@@ -1,0 +1,10 @@
+Iterations,Means,CI,Method
+200,0.866192,0.00112,genetic algorithm
+300,0.866536,0.000734,genetic algorithm
+400,0.866536,0.001849,genetic algorithm
+200,0.8545626,0.000524,baseline
+300,0.8545626,0.000524,baseline
+400,0.8545626,0.000524,baseline
+200,0.864424,0.000136,random search
+300,0.864473,0.0009,random search
+400,0.86467,0.000949,random search
