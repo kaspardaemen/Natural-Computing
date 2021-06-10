@@ -113,10 +113,3 @@ gb_ga_income <- c(0.872821,	0.868402,	0.872575,	0.870366,	0.867420)
 bg_rs_income <- c(0.87306654,	0.87429413,	0.87429413,	0.87429413,	0.87306654)
 
 t.test(gb_rs_pl, gb_ga_pl, alternative = "two.sided", var.equal = FALSE)
-
-#samenvattend: verschil tussen ga en rs is overal significant behalve bij gradient boosting on pl
-
-library(boot)
-x <- gb_ga_income
-b <- boot(x, function(u,i) mean(u[i]), R = 10000)
-boot.ci(b, type = c("norm", "basic", "perc"))
